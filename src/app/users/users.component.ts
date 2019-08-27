@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
 
   	sortedUserCollection: User[];
 
-  	constructor(private userService: UserService, private _route: Router,private activatedRoute:ActivatedRoute,private mensagem: MensagemService, private orderPipe: OrderPipe) {
+  	constructor(private userService: UserService, private _route: Router,private activatedRoute:ActivatedRoute, private mensagem: MensagemService, private orderPipe: OrderPipe) {
   		this.sortedUserCollection = orderPipe.transform(this.users, 'id');
   	}
 
@@ -37,7 +37,7 @@ export class UsersComponent implements OnInit {
 
 	  	this.state$ = this.activatedRoute.paramMap.pipe(map(() => window.history.state));
 	  	this.state$.subscribe(res => {
-      		this.mensagemGenerica = res.mensagem;
+      		// this.mensagemGenerica = res.mensagem;
   		});
 
 
