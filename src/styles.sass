@@ -1,0 +1,168 @@
+/*
+ * Theme Name: Project Name
+ * Author: Rodrigo Felipe - rodrigofpaiva@gmail.com
+ * Version: 1.0
+ * License: GNU General Public License
+ * License URI: license.txt */
+
+/*
+ índice:
+ - reset
+ - fonts
+ - cores
+ - gerais
+ - header
+ - main content
+ - footer */
+
+
+// ======================================================================== reset ===
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+div, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, div, summary,
+time, mark, audio, video
+ margin: 0
+ padding: 0
+ border: 0
+ font-size: 100%
+ font: inherit
+ vertical-align: baseline
+
+div, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, div
+ display: block
+
+body
+ line-height: 1
+
+ol, ul
+ list-style: none
+
+blockquote, q
+ quotes: none
+
+blockquote:before, blockquote:after,
+q:before, q:after
+ content: ''
+ content: none
+
+table
+ border-collapse: collapse
+ border-spacing: 0
+
+a
+ outline: none
+
+p
+ line-height: 1.5em
+
+.clear
+ clear: both
+ height: 0px
+
+*
+ margin: 0
+ padding: 0
+ text-decoration: none
+ list-style: none
+ font-weight: normal
+
+section:after,
+header:after,
+div:after
+ content: ""
+ height: 0
+ display: block
+ clear: both
+ overflow: hidden
+
+*, *:before, *:after
+ box-sizing: border-box
+
+
+// ======================================================================== fonts ===
+$font-principal: Arial
+
+
+// ======================================================================== cores ===
+$verde01: #01AAAF
+$verde02: #008E98
+
+$cinza01: #979797
+
+$laranja01: #F99831
+
+
+// ======================================================================== gerais ===
+body
+ font-size: 62.5%
+
+main
+ font-family: $font-principal
+ max-width: 2000px
+ margin: 0 auto
+ overflow: hidden
+ position: relative
+ hyphens: auto
+
+
+// ======================================================================== header ===
+.hdr-primary
+ .hdr-bar
+  background-color: $verde01
+  border-top: 6px solid $verde02
+  min-height: 56px
+  margin-bottom: 15px
+
+ .brand-neoprospecta
+  width: 320px
+  margin: 40px 5%
+
+  a
+   img
+    width: 100%
+    height: auto
+
+ nav
+  float: right
+
+
+// ======================================================================== main content ===
+.main-content
+ width: 90%
+ margin: 0 auto
+
+
+// ======================================================================== footer ===
+.ftr-primary
+ background-color: $laranja01
+ text-align: center
+ color: #fff
+ font-size: 1em
+ padding: 20px 0 60px 0
+ margin-top: 20px
+
+
+
+
+
+/* Smartphones ----------- */
+@media only screen and (min-width : 320px) and (max-width : 767px)
+ .hdr-primary
+  .hdr-bar
+   min-height: 30px
+
+  .brand-neoprospecta
+   width: 240px
+   margin: 0 auto
+   margin-top: 20px
+   margin-bottom: 30px

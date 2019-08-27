@@ -1,0 +1,26 @@
+<h2>Editar Cliente</h2>
+
+<div *ngIf="user" class="form-edit">
+
+	<fieldset>
+		<label for="">
+			Nome:
+			<input type="text" placeholder="Nome" [(ngModel)]="user.name" required class="form-control" />
+		</label>
+
+		<label for="">
+			Idade:
+			<input type="number" placeholder="Idade" [(ngModel)]="user.age" required class="form-control" />
+		</label>
+
+		<label for="">
+			Cidade:
+			<input type="text" placeholder="Cidade" [(ngModel)]="user.city" required class="form-control" />
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<button (click)="update()" class="btn btn-success">Salvar</button>
+		<button (click)="cancel()" class="btn btn-danger">Cancelar</button>
+	</fieldset>
+</div>

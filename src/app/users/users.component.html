@@ -1,0 +1,70 @@
+<h2>
+  Listagem de Clientes
+</h2>
+{{mensagemGenerica}}
+<div class="search">
+  <input class="form-control" type="text" name="search" [(ngModel)]="filter" placeholder="Buscar por Id, nome, idade ou cidade">
+</div>
+
+
+<table class="table table-striped" *ngIf="users">
+  <thead>
+    <tr>
+      <th scope="col" [class.active]="order === 'id'" (click)="setOrder('id')">
+        ID <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th scope="col" [class.active]="order === 'name'" (click)="setOrder('name')" class="mdl-data-table__cell--non-numeric">
+        Name <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th scope="col" [class.active]="order === 'age'" (click)="setOrder('age')" class="mdl-data-table__cell--non-numeric">
+        Idade <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th scope="col" [class.active]="order === 'city'" (click)="setOrder('city')" class="mdl-data-table__cell--non-numeric">
+        Cidade <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users | paginate: { itemsPerPage: 10, currentPage: paginaAtual } | filter:filter | orderBy: order:reverse; let i = index">
+        <td scope="row">
+          {{user.id}}
+        </td>
+        <td>
+        	{{user.name}}
+        </td>
+        <td>
+          {{user.age}}
+        </td>
+        <td>
+          {{user.city}}
+        </td>
+        <td>
+        	<a class="btn btn-success" routerLink="/users/update/{{user.id}}">Editar</a>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+<ul class="none" *ngIf="users">
+  <li class="card" *ngFor="let user of users | paginate: { itemsPerPage: 10, currentPage: paginaAtual } | filter:filter; let i = index">
+    <div class="card-body">
+      <span>
+        # {{user.id}}
+      </span>
+
+      <h5 class="card-title">
+        {{user.name}}, {{user.age}} anos
+      </h5>
+
+      <h6 class="card-subtitle mb-2 text-muted">
+        Cidade: {{user.city}}
+      </h6>
+
+      <a class="btn btn-success" (click)="atualizarUsuario(user.id)">Editar</a>
+    </div>
+  </li>
+</ul>
+
+<pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
