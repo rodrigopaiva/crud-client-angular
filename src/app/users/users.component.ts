@@ -37,8 +37,7 @@ export class UsersComponent implements OnInit {
 
 	  	this.state$ = this.activatedRoute.paramMap.pipe(map(() => window.history.state));
 	  	this.state$.subscribe(res => {
-      		//alert(`Mensagem ${res} `);
-      		// this.mensagemGenerica = res.mensagem;
+      		this.mensagemGenerica = res.mensagem;
   		});
 
 
@@ -52,12 +51,12 @@ export class UsersComponent implements OnInit {
 	}
 
 
-	  setOrder(value: string) {
+	setOrder(value: string) {
 	    if (this.order === value) {
 	      this.reverse = !this.reverse;
 	    }
 
 	    this.order = value;
-	  }
+	}
 
 }
